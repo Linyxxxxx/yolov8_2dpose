@@ -1,0 +1,6 @@
+# pycache
+__pycache__/
+*.pyc
+
+# hrnet ckpt
+joints_detectors/hrnet/models/
