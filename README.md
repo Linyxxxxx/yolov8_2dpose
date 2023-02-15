@@ -5,7 +5,7 @@
 ## Installation
 
 ```
-git clone ...
+git clone https://github.com/Linyxxxxx/yolov8_2dpose.git
 cd yolov8_2dpose
 pip install -r requirements.txt
 ```
