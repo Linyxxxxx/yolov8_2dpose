@@ -99,6 +99,8 @@ def get_pose_model():
 
 
 def get_pose(pose_model, image, bboxes):
+    if len(bboxes)==0: return np.array([])
+    
     # bbox is coordinate location
     inputs, origin_img, center, scale = PreProcess(image, bboxes, 1., cfg)
 

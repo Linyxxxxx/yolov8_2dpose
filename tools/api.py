@@ -143,6 +143,7 @@ def run(
                 if prev_frames[i] is not None and curr_frames[i] is not None:  # camera motion compensation
                     tracker_list[i].tracker.camera_update(prev_frames[i], curr_frames[i])
 
+            bboxes = []
             if det is not None and len(det):
                 det[:, :4] = scale_boxes(im.shape[2:], det[:, :4], im0.shape).round()  # rescale boxes to im0 size
 
@@ -154,8 +155,7 @@ def run(
                 # pass detections to strongsort
                 with dt[3]:
                     outputs[i] = tracker_list[i].update(det.cpu(), im0)
-                
-                bboxes = []
+                      
                 # draw boxes for visualization
                 if len(outputs[i]) > 0:                   
                     for _, (output) in enumerate(outputs[i]):
