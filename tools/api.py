@@ -166,11 +166,13 @@ def run(
                         # conf = output[6]
                         bboxes.append(np.array([output[0], output[1], output[2], output[3]], dtype=np.float32))
 
-            resized_im, W, H, factor = resize_img(im0)
-            bboxes = [bbox * factor for bbox in bboxes]
+            # resized_im, W, H, factor = resize_img(im0)
+            # bboxes = [bbox * factor for bbox in bboxes]
             
-            joint_2d = get_pose(pose_model, resized_im, bboxes)
-            im0 = draw_2Dimg(resized_im, joint_2d)
+            # joint_2d = get_pose(pose_model, resized_im, bboxes)
+            # im0 = draw_2Dimg(resized_im, joint_2d)
+            joint_2d = get_pose(pose_model, im0, bboxes)
+            im0 = draw_2Dimg(im0, joint_2d)
 
             if vid_path[i] != save_path:  # new video
                 vid_path[i] = save_path

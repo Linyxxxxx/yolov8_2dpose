@@ -117,7 +117,8 @@ def PreProcess(image, bboxs, scores, cfg, thred_score=0.8):
         box = [x1, y1, x2-x1, y2-y1]
 
         # 截取 box fron image  --> return center, scale
-        c, s = _box2cs(box, data_numpy.shape[0], data_numpy.shape[1])
+        # c, s = _box2cs(box, data_numpy.shape[0], data_numpy.shape[1])
+        c, s = _box2cs(box, int(cfg.MODEL.IMAGE_SIZE[0]), int(cfg.MODEL.IMAGE_SIZE[1]))
         centers.append(c)
         scales.append(s)
         r = 0
